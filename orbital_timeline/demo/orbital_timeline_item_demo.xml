@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Base records (no m2m yet to avoid forward-reference issues) -->
+    <record id="ot_item_planning" model="orbital.timeline.item">
+        <field name="name">Planning</field>
+        <field name="date">Jan 2024</field>
+        <field name="content">Project planning and requirements gathering phase.</field>
+        <field name="category">Planning</field>
+        <field name="icon">calendar</field>
+        <field name="status">completed</field>
+        <field name="energy">100</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="ot_item_design" model="orbital.timeline.item">
+        <field name="name">Design</field>
+        <field name="date">Feb 2024</field>
+        <field name="content">UI/UX design and system architecture.</field>
+        <field name="category">Design</field>
+        <field name="icon">file-text</field>
+        <field name="status">completed</field>
+        <field name="energy">90</field>
+        <field name="sequence">2</field>
+    </record>
+
+    <record id="ot_item_development" model="orbital.timeline.item">
+        <field name="name">Development</field>
+        <field name="date">Mar 2024</field>
+        <field name="content">Core features implementation and testing.</field>
+        <field name="category">Development</field>
+        <field name="icon">code</field>
+        <field name="status">in-progress</field>
+        <field name="energy">60</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="ot_item_testing" model="orbital.timeline.item">
+        <field name="name">Testing</field>
+        <field name="date">Apr 2024</field>
+        <field name="content">User testing and bug fixes.</field>
+        <field name="category">Testing</field>
+        <field name="icon">user</field>
+        <field name="status">pending</field>
+        <field name="energy">30</field>
+        <field name="sequence">4</field>
+    </record>
+
+    <record id="ot_item_release" model="orbital.timeline.item">
+        <field name="name">Release</field>
+        <field name="date">May 2024</field>
+        <field name="content">Final deployment and release.</field>
+        <field name="category">Release</field>
+        <field name="icon">clock</field>
+        <field name="status">pending</field>
+        <field name="energy">10</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <!-- Set m2m connections after all records exist -->
+    <record id="ot_item_planning" model="orbital.timeline.item">
+        <field name="related_item_ids" eval="[(6, 0, [ref('ot_item_design')])]"/>
+    </record>
+
+    <record id="ot_item_design" model="orbital.timeline.item">
+        <field name="related_item_ids" eval="[(6, 0, [ref('ot_item_planning'), ref('ot_item_development')])]"/>
+    </record>
+
+    <record id="ot_item_development" model="orbital.timeline.item">
+        <field name="related_item_ids" eval="[(6, 0, [ref('ot_item_design'), ref('ot_item_testing')])]"/>
+    </record>
+
+    <record id="ot_item_testing" model="orbital.timeline.item">
+        <field name="related_item_ids" eval="[(6, 0, [ref('ot_item_development'), ref('ot_item_release')])]"/>
+    </record>
+
+    <record id="ot_item_release" model="orbital.timeline.item">
+        <field name="related_item_ids" eval="[(6, 0, [ref('ot_item_testing')])]"/>
+    </record>
+
+</odoo>

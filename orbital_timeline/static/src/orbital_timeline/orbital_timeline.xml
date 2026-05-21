@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="orbital_timeline.OrbitalTimeline">
+        <div class="ot-container" t-ref="container" t-on-click="handleContainerClick">
+
+            <!-- Orbit stage -->
+            <div class="ot-inner">
+                <div class="ot-orbit" t-ref="orbit">
+
+                    <!-- Center nucleus -->
+                    <div class="ot-nucleus">
+                        <div class="ot-nucleus-ping ot-nucleus-ping--1"/>
+                        <div class="ot-nucleus-ping ot-nucleus-ping--2"/>
+                        <div class="ot-nucleus-core"/>
+                    </div>
+
+                    <!-- Orbit ring -->
+                    <div class="ot-ring"/>
+
+                    <!-- Nodes -->
+                    <t t-foreach="state.items" t-as="item" t-key="item.id">
+                        <div class="ot-node"
+                             t-att-style="nodeStyle(item, item_index)"
+                             t-on-click.stop="() => this.toggleItem(item.id)">
+
+                            <!-- Energy aura -->
+                            <div t-att-class="auraPulseClass(item)"
+                                 t-att-style="auraStyle(item)"/>
+
+                            <!-- Icon button -->
+                            <div t-att-class="nodeBtnClass(item)">
+                                <i t-att-class="iconClass(item.icon)"/>
+                            </div>
+
+                            <!-- Title label -->
+                            <div t-att-class="titleClass(item)">
+                                <t t-esc="item.name"/>
+                            </div>
+
+                            <!-- Expanded detail card -->
+                            <t t-if="state.expandedItems[item.id]">
+                                <div class="ot-card">
+                                    <div class="ot-card-connector"/>
+
+                                    <div class="ot-card-header">
+                                        <div class="ot-card-meta">
+                                            <span t-att-class="statusBadgeClass(item.status)">
+                                                <t t-esc="statusLabel(item.status)"/>
+                                            </span>
+                                            <span class="ot-card-date">
+                                                <t t-esc="item.date"/>
+                                            </span>
+                                        </div>
+                                        <div class="ot-card-title">
+                                            <t t-esc="item.name"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="ot-card-body">
+                                        <p><t t-esc="item.content"/></p>
+
+                                        <!-- Energy bar -->
+                                        <div class="ot-energy">
+                                            <div class="ot-energy-header">
+                                                <span>
+                                                    <i class="fa fa-bolt"/> Energy Level
+                                                </span>
+                                                <span class="ot-energy-value">
+                                                    <t t-esc="item.energy"/>%
+                                                </span>
+                                            </div>
+                                            <div class="ot-energy-track">
+                                                <div class="ot-energy-fill"
+                                                     t-att-style="`width: ${item.energy}%`"/>
+                                            </div>
+                                        </div>
+
+                                        <!-- Connected nodes -->
+                                        <t t-if="item.related_item_ids.length">
+                                            <div class="ot-related">
+                                                <div class="ot-related-header">
+                                                    <i class="fa fa-link"/> Connected Nodes
+                                                </div>
+                                                <div class="ot-related-buttons">
+                                                    <t t-foreach="item.related_item_ids"
+                                                       t-as="relId" t-key="relId">
+                                                        <t t-set="relItem" t-value="getRelatedItem(relId)"/>
+                                                        <button t-if="relItem"
+                                                                class="ot-related-btn"
+                                                                t-on-click.stop="() => this.toggleItem(relId)">
+                                                            <t t-esc="relItem.name"/>
+                                                            <i class="fa fa-arrow-right ms-1"/>
+                                                        </button>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                </div>
+            </div>
+
+            <!-- Loading overlay -->
+            <div t-if="state.loading" class="ot-loading">
+                <i class="fa fa-spinner fa-spin fa-2x"/>
+            </div>
+
+        </div>
+    </t>
+
+</templates>

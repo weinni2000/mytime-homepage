@@ -1,0 +1,25 @@
+<odoo>
+    <record id="export_pages" model="ir.actions.server">
+        <field name="name">Export pages</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_website_page" />
+        <field name="binding_model_id" ref="model_website_page" />
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+            records.export_pages()
+        </field>
+    </record>
+
+    <record id="test" model="ir.actions.server">
+        <field name="name">test</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_website_page" />
+        <field name="binding_model_id" ref="model_website_page" />
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+            records.download_footer()
+        </field>
+    </record>
+</odoo>

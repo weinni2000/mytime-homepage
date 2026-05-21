@@ -1,0 +1,353 @@
+// ---- Page root ----
+#orbital_timeline_root {
+    height: 100vh;
+    overflow: hidden;
+}
+
+// ---- Container ----
+.ot-container {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.ot-inner {
+    position: relative;
+    width: 100%;
+    max-width: 56rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ot-orbit {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// ---- Nucleus ----
+.ot-nucleus {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a855f7, #3b82f6, #14b8a6);
+    animation: ot-pulse 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.ot-nucleus-ping {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: ot-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+
+    &--1 {
+        width: 80px;
+        height: 80px;
+        opacity: 0.7;
+    }
+
+    &--2 {
+        width: 96px;
+        height: 96px;
+        opacity: 0.5;
+        animation-delay: 0.5s;
+    }
+}
+
+.ot-nucleus-core {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+// ---- Orbit ring ----
+.ot-ring {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+// ---- Nodes ----
+.ot-node {
+    position: absolute;
+    cursor: pointer;
+    will-change: transform, opacity;
+}
+
+.ot-aura {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    pointer-events: none;
+
+    &--pulsing {
+        animation: ot-pulse 1s ease-in-out infinite;
+    }
+}
+
+.ot-node-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 14px;
+
+    &--expanded {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        transform: scale(1.5);
+    }
+
+    &--related {
+        background: rgba(255, 255, 255, 0.5);
+        color: #000;
+        border-color: #fff;
+        animation: ot-pulse 1s ease-in-out infinite;
+    }
+}
+
+.ot-node-title {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    &--active {
+        color: #fff;
+        transform: translateX(-50%) scale(1.25);
+    }
+}
+
+// ---- Detail card ----
+.ot-card {
+    position: absolute;
+    top: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 256px;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.08);
+    z-index: 300;
+}
+
+.ot-card-connector {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.ot-card-header {
+    padding: 12px 16px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ot-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.ot-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border: 1px solid;
+    border-radius: 3px;
+
+    &--completed {
+        color: #fff;
+        background: #000;
+        border-color: #fff;
+    }
+
+    &--in-progress {
+        color: #000;
+        background: #fff;
+        border-color: #000;
+    }
+
+    &--pending {
+        color: #fff;
+        background: rgba(0, 0, 0, 0.4);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.ot-card-date {
+    font-size: 11px;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.ot-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.ot-card-body {
+    padding: 12px 16px 16px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+
+    p {
+        margin: 0 0 4px;
+        line-height: 1.5;
+    }
+}
+
+// ---- Energy bar ----
+.ot-energy {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ot-energy-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    margin-bottom: 6px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.ot-energy-value {
+    font-family: monospace;
+}
+
+.ot-energy-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.ot-energy-fill {
+    height: 100%;
+    background: linear-gradient(to right, #3b82f6, #a855f7);
+    transition: width 0.4s ease;
+}
+
+// ---- Connected nodes ----
+.ot-related {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ot-related-header {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+
+    .fa {
+        margin-right: 4px;
+    }
+}
+
+.ot-related-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.ot-related-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 24px;
+    padding: 0 8px;
+    font-size: 11px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    border-radius: 0;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+    }
+}
+
+// ---- Loading overlay ----
+.ot-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.4);
+    background: #000;
+    z-index: 500;
+}
+
+// ---- Animations ----
+@keyframes ot-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes ot-ping {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}

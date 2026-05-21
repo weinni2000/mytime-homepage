@@ -1,0 +1,1008 @@
+<odoo>
+    <record id="about_us" model="website.page">
+        <field name="name">About us</field>
+        <field name="type">qweb</field>
+        <field name="url">/about_us</field>
+        <field name="website_indexed" eval="True" />
+        <field name="is_published">True</field>
+        <field name="key">bulletin_board_website.about_us</field>
+        <field name="arch" type="xml">
+            <t t-name="website.team-1">
+                <t t-call="website.layout">
+                    <div id="oe_structure_wrap" class="oe_structure oe_empty">
+                        <section
+                            class="s_text_block pt40 pb0 o_colored_level"
+                            data-snippet="s_text_block"
+                            data-name="Text"
+                            style="background-image: none;"
+                        >
+                            <div class="container s_allow_columns">
+                                <h1 style="text-align: center;">Our Team</h1>
+                            </div>
+                        </section>
+                        <section
+                            class="s_company_team pt48 pb48 o_colored_level"
+                            data-snippet="s_company_team"
+                            data-name="Team"
+                            style="background-image: none;"
+                        >
+                            <div class="container">
+                                <div class="row s_nb_column_fixed">
+                                    <div class="col-lg-6 pt24 pb24 o_colored_level">
+                                        <div
+                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                        >
+                                            <div class="col-lg-4 pb16 o_not_editable">
+                                                <img
+                                                    src="/bulletin_board_website/static/src/img/nikolaus.jpg"
+                                                    alt=""
+                                                    class="img-fluid rounded-circle mx-auto o_editable_media img o_we_custom_image"
+                                                    data-mimetype="image/jpeg"
+                                                    data-original-id="1370"
+                                                    data-original-src="/web/image/1370-1de3fe3e/Untitled%20%283%29.jpg"
+                                                    data-mimetype-before-conversion="image/jpeg"
+                                                />
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <h4
+                                                >Nikolaus Weingartmair,&amp;nbsp;Product Manager</h4>
+                                                <p
+                                                > Biker. Coder. Farmboy. Minimalist&amp;nbsp;<br
+                                                />
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 pt24 pb24 o_colored_level">
+                                        <div
+                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                        >
+                                            <div class="col-lg-4 pb16 o_not_editable">
+                                                <img
+                                                    src="/bulletin_board_website/static/src/img/elisabeth.jpg"
+                                                    alt=""
+                                                    class="img-fluid rounded-circle mx-auto o_editable_media img o_we_custom_image"
+                                                />
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <h4
+                                                >Elisabeth Rehrl,&amp;nbsp;Marketing</h4>
+                                                <p
+                                                >Gardening. Sustainability. Slow-Flowers.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 pt24 pb24 o_colored_level">
+                                        <div
+                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                        >
+                                            <div class="col-lg-4 pb16 o_not_editable">
+                                                <img
+                                                    src="/bulletin_board_website/static/src/img/levente.jpg"
+                                                    alt=""
+                                                    class="img-fluid rounded-circle mx-auto o_editable_media img o_we_custom_image"
+                                                    data-mimetype="image/webp"
+                                                    data-original-id="1372"
+                                                    data-original-src="/web/image/1372-2f58fec4/Untitled.jpg"
+                                                    data-mimetype-before-conversion="image/jpeg"
+                                                    data-resize-width="504"
+                                                />
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <h4
+                                                >Levente Lukacs,&amp;nbsp;Vertrieb</h4>
+                                                <p
+                                                >Creating Shareholder Value. Hunting. Boats</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 pt24 pb24 o_colored_level">
+                                        <div
+                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                        >
+                                            <div class="col-lg-4 pb16 o_not_editable">
+                                                <img
+                                                    src="/bulletin_board_website/static/src/img/michael.jpg"
+                                                    alt=""
+                                                    class="img-fluid rounded-circle mx-auto o_editable_media img o_we_custom_image"
+                                                    data-mimetype="image/webp"
+                                                    data-original-id="1376"
+                                                    data-original-src="/web/image/1376-22f52a54/michael.jpg"
+                                                    data-mimetype-before-conversion="image/jpeg"
+                                                    data-resize-width="256"
+                                                />
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <h4
+                                                >Michael Friedrich,&amp;nbsp;Business Development</h4>
+                                                <p
+                                                >Business Development. Prozessoptimierung.
+                                                    Markforschung. Design Thinking.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <function model="website.page" name="unlink">
+        <value
+            model="website.page"
+            eval="obj().search([
+                ('url', 'in', ['/contactus','/']),
+            ]).ids"
+        />
+    </function>
+
+    <record id="impressum" model="website.page">
+        <field name="name">Impressum</field>
+        <field name="type">qweb</field>
+        <field name="url">/impressum</field>
+        <field name="website_indexed">True</field>
+        <field name="is_published">True</field>
+        <field name="key">homepage_nw.impressum</field>
+        <field name="arch" type="xml">
+            <t t-name="website.impressum">
+                <t t-call="website.layout">
+                    <div id="oe_structure_wrap" class="oe_structure oe_empty">
+                        <section
+                            class="s_text_image pt32 pb32 o_colored_level"
+                            data-snippet="s_image_text"
+                            style="background-image: none;"
+                            data-name="Buschenschank Text"
+                        >
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div
+                                        class="pt16 pb16 col-lg-5 offset-lg-1 o_colored_level"
+                                    >
+                                        <img
+                                            src="/homepage_nw/static/src/img/website/54522520_10158268694348146_8210203283386531840_n.jpg"
+                                            alt=""
+                                            class="img img-fluid mx-auto o_we_custom_image"
+                                            data-original-id="16710"
+                                            data-original-src="/homepage_nw/static/src/img/website/54522520_10158268694348146_8210203283386531840_n.jpg"
+                                            data-mimetype="image/jpg"
+                                            data-resize-width="300"
+                                        />
+                                    </div>
+                                    <div
+                                        class="pt16 pb16 col-lg-4 offset-lg-1 o_colored_level"
+                                        style=""
+                                    >
+                                        <h2>Webdesign by mytime.click</h2>
+                                        <p>Functional Websites</p>
+                                        <div
+                                            class="s_hr text-start p0 pb32"
+                                            data-snippet="s_hr"
+                                            data-name="Separator"
+                                        >
+                                            <hr
+                                                class="w-100 mx-auto"
+                                                style="border-top-width: 1px; border-top-style: solid; border-top-color: var(--o-color-3) !important;"
+                                            />
+                                        </div>
+                                        <p>
+                                            <a
+                                                href="https://mytime.click"
+                                                class="mb-2 btn btn-primary btn-lg"
+                                                data-bs-original-title=""
+                                                title=""
+                                            >Mytime.click</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="s_faq_collapse pt32 pb32 o_colored_level"
+                            data-snippet="s_faq_collapse"
+                            data-name="Accordion"
+                            style="background-image: none;"
+                        >
+                            <div class="container">
+                                <div
+                                    id="myCollapse1635974132688"
+                                    class="accordion"
+                                    role="tablist"
+                                >
+                                    <div class="card bg-white" data-name="Item">
+                                        <a
+                                            title=""
+                                            data-bs-original-title=""
+                                            data-bs-target="#myCollapseTab1636147479241"
+                                            class="card-header collapsed"
+                                            aria-expanded="false"
+                                            data-bs-toggle="collapse"
+                                            role="tab"
+                                            href="#"
+                                        >Impressum</a>
+                                        <div
+                                            class="collapse"
+                                            data-bs-parent="#myCollapse1635974132688"
+                                            role="tabpanel"
+                                            id="myCollapseTab1636147479241"
+                                            style=""
+                                        >
+                                            <div class="card-body">
+                                                <p class="card-text" />
+                                                <p>
+                                                    <span
+                                                        style="font-weight: bolder;"
+                                                    >Nikolaus Weingartmair</span>
+                                                </p>
+                                                <p> Nikolaus Weingartmair</p>
+                                                <p>Sipbachzeller Straße 3</p>
+                                                <p>4642 Sattledt</p>
+                                                <p>hello@mytime.click</p>
+                                                <p>www.weingartmair.eu</p>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card bg-white" data-name="Item">
+                                        <a
+                                            href="#"
+                                            role="tab"
+                                            data-bs-toggle="collapse"
+                                            aria-expanded="false"
+                                            class="card-header o_default_snippet_text collapsed"
+                                            data-bs-target="#myCollapseTab1635974132689"
+                                            data-bs-original-title=""
+                                            title=""
+                                        >Nutzungsbedingungen</a>
+                                        <div
+                                            class="collapse"
+                                            data-bs-parent="#myCollapse1635974132688"
+                                            role="tabpanel"
+                                            id="myCollapseTab1635974132689"
+                                            style=""
+                                        >
+                                            <div class="card-body">
+                                                <p
+                                                    class="card-text"
+                                                >Diese Nutzungsbedingungen ("Bedingungen", "Vereinbarung") sind eine Vereinbarung zwischen der Website ("Websitebetreiber", "uns", "wir" oder "unser") und Ihnen ("Nutzer", "Sie" oder "Ihr"). Diese Vereinbarung legt die allgemeinen Bedingungen für Ihre Nutzung dieser Website und aller ihrer Produkte oder Dienstleistungen (zusammenfassend "Website" oder "Dienstleistungen") fest.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card bg-white" data-name="Item">
+                                        <a
+                                            href="#"
+                                            role="tab"
+                                            data-bs-toggle="collapse"
+                                            aria-expanded="false"
+                                            class="collapsed card-header o_default_snippet_text"
+                                            data-bs-target="#myCollapseTab1635974132690"
+                                            data-bs-original-title=""
+                                            title=""
+                                        >Links zu anderen Websites</a>
+                                        <div
+                                            class="collapse"
+                                            data-bs-parent="#myCollapse1635974132688"
+                                            role="tabpanel"
+                                            id="myCollapseTab1635974132690"
+                                            style=""
+                                        >
+                                            <div class="card-body">
+                                                <p
+                                                    class="card-text o_default_snippet_text"
+                                                >Obwohl diese Website möglicherweise mit anderen Websites verlinkt ist, implizieren wir weder direkt noch indirekt eine Genehmigung, Vereinigung, Sponsoring, Unterstützung oder Zugehörigkeit zu einer verlinkten Website, es sei denn, es wird ausdrücklich darauf hingewiesen.</p>
+                                                <p
+                                                    class="card-text"
+                                                >Sie sollten die rechtlichen Erklärungen und sonstigen Nutzungsbedingungen jeder Website, auf die Sie über einen Link von dieser Website aus zugreifen, sorgfältig prüfen. Die Verlinkung zu anderen Off-Site-Seiten oder anderen Websites erfolgt auf Ihr eigenes Risiko.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card bg-white" data-name="Item">
+                                        <a
+                                            href="#"
+                                            role="tab"
+                                            data-bs-toggle="collapse"
+                                            aria-expanded="false"
+                                            class="card-header collapsed"
+                                            data-bs-target="#myCollapseTab1635974132691"
+                                            data-bs-original-title=""
+                                            title=""
+                                        >Cookies benutzen</a>
+                                        <div
+                                            class="collapse"
+                                            data-bs-parent="#myCollapse1635974132688"
+                                            role="tabpanel"
+                                            id="myCollapseTab1635974132691"
+                                            style=""
+                                        >
+                                            <div class="card-body">
+                                                <p
+                                                    class="card-text o_default_snippet_text"
+                                                >Die Website kann Cookies verwenden, um die maximale Navigation des Benutzers durch diese Website zu personalisieren und zu erleichtern. Der Benutzer kann seinen Browser so konfigurieren, dass er die Installation der von uns gesendeten Cookies meldet und ablehnt.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card bg-white" data-name="Item">
+                                        <a
+                                            href="#"
+                                            role="tab"
+                                            data-bs-toggle="collapse"
+                                            aria-expanded="false"
+                                            class="card-header o_default_snippet_text collapsed"
+                                            data-bs-target="#myCollapseTab1636147053941"
+                                            data-bs-original-title=""
+                                            title=""
+                                        >Foto und Video credits</a>
+                                        <div
+                                            class="collapse"
+                                            data-bs-parent="#myCollapse1635974132688"
+                                            role="tabpanel"
+                                            id="myCollapseTab1636147053941"
+                                            style=""
+                                        >
+                                            <div class="card-body">
+                                                <p class="card-text" />
+                                                <p>Alle
+              Fotos dieser Website sind von Elisabeth Rehrl.</p>
+                                                <p>Außer
+              folgende Aufnahmen:</p>
+                                                <p>Portraits
+              und diverse Hintergrundbilder: Matthias Heschl</p>
+                                                <p>Portraits:
+              Reinhold Wenzl </p>
+                                                <p>Fotos
+              Taufe: Theresa Werinos</p>
+                                                <p
+                                                >Fotos: Hannah &amp;amp; Sophia Rehrl</p>
+                                                <p>Video:
+              Gerhard Artelsmair</p>
+                                                <p
+                                                >Logo: Marion Désauté &amp;amp; Sophia Rehrl</p>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <record id="contactus_page" model="website.page">
+        <field name="name">Contactus</field>
+        <field name="type">qweb</field>
+        <field name="url">/contactus</field>
+        <field name="website_indexed">True</field>
+        <field name="is_published">True</field>
+        <field name="key">homepage_nw.contactus</field>
+        <field name="arch" type="xml">
+            <t name="Contact Us" t-name="website.contactus">
+                <t t-call="website.layout">
+                    <t
+                        t-set="logged_partner"
+                        t-value="request.env['website.visitor']._get_visitor_from_request().partner_id"
+                    />
+                    <t
+                        t-set="contactus_form_values"
+                        t-value="{                 'email_to': res_company.email,                 'name': request.params.get('name', ''),                 'phone': request.params.get('phone', ''),                 'email_from': request.params.get('email_from', ''),                 'company': request.params.get('company', ''),                 'subject': request.params.get('subject', ''),             }"
+                    />
+                    <span
+                        class="hidden"
+                        data-for="contactus_form"
+                        t-att-data-values="contactus_form_values"
+                    />
+                    <div id="oe_structure_wrap" class="oe_structure oe_empty">
+                        <section
+                            class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24"
+                            data-vcss="001"
+                            data-snippet="s_title"
+                            data-scroll-background-ratio="1"
+                        >
+                            <span
+                                class="s_parallax_bg oe_img_bg"
+                                style="background-image: url('/web/image/website.s_parallax_default_image'); background-position: 50% 0;"
+                            />
+                            <div class="o_we_bg_filter bg-black-50" />
+                            <div class="container">
+                                <h1>Contact us</h1>
+                            </div>
+                        </section>
+                        <section
+                            class="s_text_block pt40 pb40 o_colored_level "
+                            data-snippet="s_text_block"
+                        >
+                            <div class="container s_allow_columns">
+                                <div class="row">
+                                    <div class="col-lg-8 mt-4 mt-lg-0">
+                                        <p
+                                        > Contact us about anything related to our company or
+                                            services.<br
+                                        /> We'll do our best to get back to you as
+                                            soon as possible. </p>
+                                        <section
+                                            class="s_website_form"
+                                            data-vcss="001"
+                                            data-snippet="s_website_form"
+                                        >
+                                            <div class="container">
+                                                <form
+                                                    id="contactus_form"
+                                                    action="/website/form/"
+                                                    method="post"
+                                                    enctype="multipart/form-data"
+                                                    class="o_mark_required"
+                                                    data-mark="*"
+                                                    data-model_name="mail.mail"
+                                                    data-success-mode="redirect"
+                                                    data-success-page="/contactus-thank-you"
+                                                    data-pre-fill="true"
+                                                >
+                                                    <div
+                                                        class="s_website_form_rows row s_col_no_bgcolor"
+                                                    >
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_field s_website_form_custom s_website_form_required"
+                                                            data-type="char"
+                                                            data-name="Field"
+                                                        >
+                                                            <div
+                                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                                            >
+                                                                <label
+                                                                    class="col-form-label col-sm-auto s_website_form_label"
+                                                                    style="width: 200px"
+                                                                    for="contact1"
+                                                                >
+                                                                    <span
+                                                                        class="s_website_form_label_content"
+                                                                    >
+                                                                        Name</span>
+                                                                    <span
+                                                                        class="s_website_form_mark"
+                                                                    >
+                                                                        *</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input
+                                                                        id="contact1"
+                                                                        type="text"
+                                                                        class="form-control s_website_form_input"
+                                                                        name="name"
+                                                                        required=""
+                                                                        data-fill-with="name"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_field s_website_form_custom"
+                                                            data-type="char"
+                                                            data-name="Field"
+                                                        >
+                                                            <div
+                                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                                            >
+                                                                <label
+                                                                    class="col-form-label col-sm-auto s_website_form_label"
+                                                                    style="width: 200px"
+                                                                    for="contact2"
+                                                                >
+                                                                    <span
+                                                                        class="s_website_form_label_content"
+                                                                    >Phone
+                                                                        Number</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input
+                                                                        id="contact2"
+                                                                        type="tel"
+                                                                        class="form-control s_website_form_input"
+                                                                        name="phone"
+                                                                        data-fill-with="phone"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_field s_website_form_required s_website_form_model_required"
+                                                            data-type="email"
+                                                            data-name="Field"
+                                                        >
+                                                            <div
+                                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                                            >
+                                                                <label
+                                                                    class="col-form-label col-sm-auto s_website_form_label"
+                                                                    style="width: 200px"
+                                                                    for="contact3"
+                                                                >
+                                                                    <span
+                                                                        class="s_website_form_label_content"
+                                                                    >
+                                                                        Email</span>
+                                                                    <span
+                                                                        class="s_website_form_mark"
+                                                                    >
+                                                                        *</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input
+                                                                        id="contact3"
+                                                                        type="email"
+                                                                        class="form-control s_website_form_input"
+                                                                        name="email_from"
+                                                                        required=""
+                                                                        data-fill-with="email"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_field s_website_form_custom"
+                                                            data-type="char"
+                                                            data-name="Field"
+                                                        >
+                                                            <div
+                                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                                            >
+                                                                <label
+                                                                    class="col-form-label col-sm-auto s_website_form_label"
+                                                                    style="width: 200px"
+                                                                    for="contact4"
+                                                                >
+                                                                    <span
+                                                                        class="s_website_form_label_content"
+                                                                    >
+                                                                        Company</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input
+                                                                        id="contact4"
+                                                                        type="text"
+                                                                        class="form-control s_website_form_input"
+                                                                        name="company"
+                                                                        data-fill-with="commercial_company_name"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_field s_website_form_required s_website_form_model_required"
+                                                            data-type="char"
+                                                            data-name="Field"
+                                                        >
+                                                            <div
+                                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                                            >
+                                                                <label
+                                                                    class="col-form-label col-sm-auto s_website_form_label"
+                                                                    style="width: 200px"
+                                                                    for="contact5"
+                                                                >
+                                                                    <span
+                                                                        class="s_website_form_label_content"
+                                                                    >
+                                                                        Subject</span>
+                                                                    <span
+                                                                        class="s_website_form_mark"
+                                                                    >
+                                                                        *</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input
+                                                                        id="contact5"
+                                                                        type="text"
+                                                                        class="form-control s_website_form_input"
+                                                                        name="subject"
+                                                                        required=""
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_field s_website_form_custom s_website_form_required"
+                                                            data-type="text"
+                                                            data-name="Field"
+                                                        >
+                                                            <div
+                                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                                            >
+                                                                <label
+                                                                    class="col-form-label col-sm-auto s_website_form_label"
+                                                                    style="width: 200px"
+                                                                    for="contact6"
+                                                                >
+                                                                    <span
+                                                                        class="s_website_form_label_content"
+                                                                    >
+                                                                        Question</span>
+                                                                    <span
+                                                                        class="s_website_form_mark"
+                                                                    >
+                                                                        *</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <textarea
+                                                                        id="contact6"
+                                                                        class="form-control s_website_form_input"
+                                                                        name="description"
+                                                                        required=""
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_field s_website_form_dnone"
+                                                        >
+                                                            <div
+                                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                                            >
+                                                                <label
+                                                                    class="col-form-label col-sm-auto s_website_form_label"
+                                                                    style="width: 200px"
+                                                                    for="contact7"
+                                                                >
+                                                                    <span
+                                                                        class="s_website_form_label_content"
+                                                                    >Email
+                                                                        To</span>
+                                                                </label>
+                                                                <div class="col-sm">
+                                                                    <input
+                                                                        id="contact7"
+                                                                        type="hidden"
+                                                                        class="form-control s_website_form_input"
+                                                                        name="email_to"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="mb-0 py-2 col-12 s_website_form_submit"
+                                                            data-name="Submit Button"
+                                                        >
+                                                            <div
+                                                                style="width: 200px;"
+                                                                class="s_website_form_label"
+                                                            />
+                                                            <a
+                                                                href="#"
+                                                                role="button"
+                                                                class="btn btn-primary s_website_form_send"
+                                                            >
+                                                                Submit</a>
+                                                            <span
+                                                                id="s_website_form_result"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div class="col-lg-4 mt-4 mt-lg-0">
+                                        <ul class="list-unstyled mb-0 ps-2">
+                                            <li>Mytime.click</li>
+                                            <li>
+                                                <i
+                                                    class="fa fa-map-marker fa-fw me-2"
+                                                />
+                                                <span
+                                                    class="o_force_ltr"
+                                                >Sipbachzeller Str. 3, 4642
+                                                    Sattledt</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-phone fa-fw me-2" />
+                                                <span
+                                                    class="o_force_ltr"
+                                                >+43 650 2728225</span>
+                                            </li>
+                                            <li>
+                                                <i
+                                                    class="fa fa-1x fa-fw fa-envelope me-2"
+                                                />
+                                                <span>hello@mytime.click</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <record id="landing_page" model="website.page">
+        <field name="name">Home</field>
+        <field name="type">qweb</field>
+        <field name="url">/</field>
+        <field name="website_indexed">True</field>
+        <field name="is_published">True</field>
+        <field name="key">homepage_nw.homepage</field>
+        <field name="arch" type="xml">
+            <t name="Home" t-name="website.homepage">
+                <t t-call="website.layout">
+                    <t t-set="pageName" t-value="'homepage'" />
+                    <div id="oe_structure_wrap" class="oe_structure">
+                        <section
+                            class="s_banner o_colored_level pt256 parallax s_parallax_is_fixed s_parallax_no_overflow_hidden pb224"
+                            data-scroll-background-ratio="1"
+                            data-snippet="s_banner"
+                            data-name="Banner"
+                            style="background-image: none; position: relative;"
+                        >
+                            <span
+                                class="s_parallax_bg oe_img_bg o_bg_img_center"
+                                style="background-image: url(&quot;/homepage_nw/static/src/img/website/54522520_10158268694348146_8210203283386531840_n.jpg&quot;);"
+                            />
+
+                            <div class="container">
+                                <div
+                                    class="row s_nb_column_fixed o_grid_mode"
+                                    data-row-count="4"
+                                >
+                                    <div
+                                        class="justify-content-center px-5 o_cc o_cc1 rounded o_colored_level o_grid_item shadow g-col-lg-9 g-height-4 col-lg-9"
+                                        data-name="Box"
+                                        style="--grid-item-padding-y: 48px; --grid-item-padding-x: 60px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important; z-index: 1; grid-area: 1 / 1 / 5 / 10;"
+                                    >
+                                        <h1 class="display-3">
+                                            <b>NIKOLAUS WEINGARTMAIR</b>
+                                        </h1>
+                                        <p class="lead">
+                                            <strong>
+                                                <span
+                                                    class="h3-fs"
+                                                >BUILD | REDUCE | SHIFT</span>
+                                            </strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="s_text_cover o_colored_level parallax s_parallax_is_fixed s_parallax_no_overflow_hidden"
+                            data-snippet="s_text_cover"
+                            data-name="Text Cover"
+                            style="background-image: none;"
+                            data-scroll-background-ratio="1"
+                        >
+                            <span
+                                class="s_parallax_bg oe_img_bg o_bg_img_center"
+                                data-mimetype="image/webp"
+                                data-original-id="442"
+                                data-original-src="/homepage_nw/static/src/img/website/nikolaus-weingartmair.1024x1024.jpg"
+                                data-mimetype-before-conversion="image/jpeg"
+                                data-resize-width="256"
+                                style="background-image: url(&quot;/web/assets/1/8b3d1c2/455/website.assets_all_wysiwyg.js.map?unique=64c96617&quot;);"
+                            />
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div
+                                        class="o_colored_level o_cc o_cc4 col-lg-5 pt160 pb160 px-5"
+                                    >
+                                        <h1
+                                            class="display-3 o_default_snippet_text"
+                                        >About</h1>
+                                        <p>Nikolaus Weingartmair is an IT
+                                            professional&amp;nbsp;based in Austria. After jobs
+                                            start-ups and later in SMEs &amp;nbsp;in the production
+                                            industries he came back to his passion of
+                                            programming.&amp;nbsp;</p>
+                                        <p>
+                                            <a
+                                                href="https://www.linkedin.com/in/nikolaus-weingartmair-58036933/"
+                                                class="btn btn-secondary"
+                                                data-bs-original-title=""
+                                                title=""
+                                            >Linkedin</a>
+                                            <br />
+                                        </p>
+                                        <p
+                                        >He is particularly active in the open-source community,
+                                            especially within the Odoo Community Association (OCA).
+                                            The Odoo platform is a popular open-source ERP
+                                            system.&amp;nbsp;</p>
+                                        <p>
+                                            <a
+                                                href="https://odoo.com"
+                                                class="btn btn-secondary"
+                                                data-bs-original-title=""
+                                                title=""
+                                            >Odoo</a>
+                                            <br />
+                                        </p>
+                                        <p
+                                        >Weingartmair also co-manages "Lisi Grün," a farm in
+                                            Upper Austria focused on organic flower and vegetable
+                                            production with his partner Lisi Grün.</p>
+                                        <a
+                                            class="btn btn-secondary"
+                                            href="https://lisi_gruen.at"
+                                            data-bs-original-title=""
+                                            title=""
+                                        >Lisi Grün</a>
+                                    </div>
+                                    <div
+                                        class="o_not_editable o_colored_level o_cc o_cc1 pt160 pb160 col-lg-7 d-none d-md-block s_parallax_no_overflow_hidden parallax s_parallax_is_fixed"
+                                        style="background-image: none; background-position: 100% 0px;"
+                                        data-scroll-background-ratio="1"
+                                    >
+                                        <span
+                                            class="s_parallax_bg oe_img_bg o_bg_img_center"
+                                            style="background-image: url(&quot;/homepage_nw/static/src/img/website/nikolaus-weingartmair.1024x1024.jpg&quot;);"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="s_three_columns o_cc o_cc2 o_colored_level pt64 pb64"
+                            data-vcss="001"
+                            data-snippet="s_three_columns"
+                            data-name="Columns"
+                            style="background-image: none;"
+                        >
+                            <div class="container">
+                                <div class="row d-flex align-items-stretch">
+                                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                                        <div
+                                            class="card text-bg-white h-100 shadow"
+                                            style="box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;"
+                                        >
+                                            <img
+                                                src="/homepage_nw/static/src/img/website/69719876_10158755909538146_6989889288024358912_n.jpg"
+                                                alt=""
+                                                class="card-img-top img img-fluid o_we_custom_image"
+                                                data-mimetype="image/webp"
+                                                data-original-id="510"
+                                                data-original-src="/homepage_nw/static/src/img/website/69719876_10158755909538146_6989889288024358912_n.jpg"
+                                                data-mimetype-before-conversion="image/jpeg"
+                                                data-resize-width="690"
+                                                loading="lazy"
+                                            />
+                                            <div class="card-body">
+                                                <h3 class="card-title">
+                                                    &amp;nbsp;Open Source Software&amp;nbsp;</h3>
+                                                <p
+                                                    class="card-title"
+                                                >We love Odoo and the brilliant
+                                                    ecosystem.&amp;nbsp;</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                                        <div
+                                            class="card text-bg-white h-100"
+                                            style="box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;"
+                                        >
+                                            <img
+                                                src="/homepage_nw/static/src/img/website/OCA - Logo Horizontal Light Tagline Short WordMark@512.png"
+                                                alt=""
+                                                class="card-img-top img img-fluid o_we_custom_image"
+                                                data-mimetype="image/webp"
+                                                data-original-id="450"
+                                                data-original-src="/web/image/450-e54831bc/OCA%20-%20Logo%20Horizontal%20Light%20Tagline%20Short%20WordMark%40512.png"
+                                                data-mimetype-before-conversion="image/png"
+                                                data-resize-width="513"
+                                            />
+                                            <div class="card-body">
+                                                <h3 class="card-title">OCA&amp;nbsp;<br
+                                                /></h3>
+                                                <p
+                                                    class="card-text"
+                                                >Making Odoo Mightier Together</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                                        <div
+                                            class="card text-bg-white h-100"
+                                            style="box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px !important;"
+                                        >
+                                            <img
+                                                src="/homepage_nw/static/src/img/website/-MpmgMMO_200x200.webp"
+                                                alt=""
+                                                class="card-img-top img img-fluid o_we_custom_image"
+                                                data-mimetype="image/webp"
+                                                data-original-id="517"
+                                                data-original-src="/homepage_nw/static/src/img/website/-MpmgMMO_200x200.webp"
+                                                data-mimetype-before-conversion="image/jpeg"
+                                                data-resize-width="200"
+                                                loading="lazy"
+                                            />
+                                            <div class="card-body">
+                                                <h3>ODOO</h3>
+                                                <p>We love Odoo</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="s_title pt40 pb40 o_colored_level"
+                            data-vcss="001"
+                            data-snippet="s_title"
+                            data-name="Title"
+                            style="background-image: none;"
+                        >
+                            <div class="container s_allow_columns">
+                                <h2
+                                    class="display-3-fs o_default_snippet_text"
+                                    style="text-align: center;"
+                                >Current Projects</h2>
+                            </div>
+                        </section>
+                        <section
+                            class="s_text_image pt80 pb80 o_colored_level o_cc o_cc2"
+                            data-snippet="s_image_text"
+                            data-name="Image - Text"
+                            style="background-image: none;"
+                        >
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 pt16 pb16 o_colored_level">
+                                        <img
+                                            src="/homepage_nw/static/src/img/website/schwarzes-brett.png"
+                                            alt=""
+                                            class="img img-fluid mx-auto img-thumbnail o_we_custom_image"
+                                            style="padding: 15px;"
+                                            data-shape="web_editor/devices/ipad_3d_portrait_01"
+                                            data-shape-colors=";;;;#202022"
+                                            data-mimetype="image/svg+xml"
+                                            data-original-id="452"
+                                            data-original-src="/homepage_nw/static/src/img/website/schwarzes-brett.png"
+                                            data-mimetype-before-conversion="image/png"
+                                            data-original-mimetype="image/webp"
+                                            data-resize-width="500"
+                                            data-file-name="schwarzes-brett.svg"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div class="col-lg-6 pt16 pb16 o_colored_level">
+                                        <h2
+                                            class="o_default_snippet_text"
+                                        >Schwarzes-Brett.info</h2>
+                                        <p
+                                        >The new upcomming plattform for hyperlocal community news</p>
+                                        <p>
+                                            <br />
+                                        </p>
+                                        <p>
+                                            <a
+                                                href="https://schwarzes-brett.info"
+                                                class="btn btn-secondary"
+                                                data-bs-original-title=""
+                                                title=""
+                                            >Discover more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!--
+    <record id="website.homepage_page" model="website.page">
+        <field name="is_published">True</field>
+        <field name="url">/</field>
+        <field name="view_id" ref="homepage_nw.landing_page" />
+        <field name="track">True</field>
+        <field
+            name="website_meta_description"
+        >This is the homepage of the website</field>
+    </record>
+    -->
+</odoo>

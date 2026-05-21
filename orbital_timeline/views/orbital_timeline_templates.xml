@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="orbital_timeline_page" name="Orbital Timeline">
+        <t t-call="website.layout">
+            <t t-set="pageName" t-value="'orbital_timeline'"/>
+            <t t-set="head_custom_classes" t-value="'o_header_overlay'"/>
+            <div id="orbital_timeline_root">
+                <owl-component name="orbital_timeline.orbital_timeline"/>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="portfolio_page" name="Portfolio — Nikolaus Weingartmair">
+        <t t-call="website.layout">
+            <div id="portfolio_root">
+                <owl-component name="orbital_timeline.portfolio_block"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

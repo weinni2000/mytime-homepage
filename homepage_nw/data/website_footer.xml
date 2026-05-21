@@ -1,0 +1,16 @@
+<odoo>
+    <template
+        id="footer_copyright_company_name"
+        inherit_id="website.footer_copyright_company_name"
+        priority="100"
+    >
+        <xpath
+            expr="//footer//span[hasclass('o_footer_copyright_name')]"
+            position="replace"
+        >
+            <span
+                class="o_footer_copyright_name me-2"
+            >Copyright &amp;copy; mytime.click</span>
+        </xpath>
+    </template>
+</odoo>

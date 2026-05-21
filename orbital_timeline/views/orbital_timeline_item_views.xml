@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="orbital_timeline_item_view_list" model="ir.ui.view">
+        <field name="name">orbital.timeline.item.list</field>
+        <field name="model">orbital.timeline.item</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="category"/>
+                <field name="icon"/>
+                <field name="status"/>
+                <field name="energy"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="orbital_timeline_item_view_form" model="ir.ui.view">
+        <field name="name">orbital.timeline.item.form</field>
+        <field name="model">orbital.timeline.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger"
+                            invisible="active"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="category"/>
+                            <field name="icon"/>
+                            <field name="status"/>
+                        </group>
+                        <group>
+                            <field name="energy" widget="progressbar"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="content" nolabel="1"/>
+                    </group>
+                    <group string="Connected Nodes">
+                        <field name="related_item_ids" nolabel="1"
+                               widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="orbital_timeline_item_action" model="ir.actions.act_window">
+        <field name="name">Timeline Items</field>
+        <field name="res_model">orbital.timeline.item</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{"search_default_active": 1}</field>
+    </record>
+
+    <menuitem
+        id="orbital_timeline_menu_root"
+        name="Orbital Timeline"
+        sequence="99"
+    />
+    <menuitem
+        id="orbital_timeline_menu_items"
+        name="Timeline Items"
+        parent="orbital_timeline_menu_root"
+        action="orbital_timeline_item_action"
+        sequence="1"
+    />
+
+</odoo>

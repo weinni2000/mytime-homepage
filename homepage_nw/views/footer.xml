@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Theme Footer - Option -->
+    <template
+        id="template_footer_opt"
+        inherit_id="website.snippet_options"
+        name="Test Theme Custom Footer Template - Option"
+    >
+        <xpath expr="//we-select[@data-variable='footer-template']" position="inside">
+            <we-button
+                title="Custom Theme"
+                data-customize-website-views="theme_test_custo.template_footer_custom"
+                data-customize-website-variable="'custom-theme'"
+                data-img="/theme_test_custo/static/src/img/template_footer_opt.svg"
+            />
+        </xpath>
+    </template>
+
+    <!-- Theme Footer - Layout -->
+    <template
+        id="template_footer_contact"
+        inherit_id="website.template_footer_contact"
+        name="NW Theme Template Footer Contact"
+        priority="100"
+    >
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div
+                id="oe_structure_footer"
+                class="oe_structure oe_structure_solo"
+                t-ignore="true"
+                t-if="not no_footer"
+            >
+                <section
+                    class="s_text_block pt32"
+                    data-snippet="s_text_block"
+                    data-name="Text"
+                    style="background-image: none;"
+                >
+                    <div class="s_allow_columns container">
+                        <p
+                            class="text-center mb-1"
+                        >Sipbachzeller Str. 3, 4642 Sattledt Austria</p>
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item mx-3">
+                                <i class="fa fa-1x fa-fw fa-phone me-2" />
+                                <span class="o_force_ltr">
+                                    <a
+                                        href="tel://+436502728225"
+                                        data-bs-original-title=""
+                                        title=""
+                                    >
+                                        +436502728225</a>
+                                </span>
+                            </li>
+                            <li class="list-inline-item mx-3">
+                                <i class="fa fa-1x fa-fw fa-envelope me-2" />
+                                <a
+                                    href="http://hello@mytime.click"
+                                    data-bs-original-title=""
+                                    title=""
+                                >hello@mytime.click</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section
+                    class="s_text_block pt16 pb16"
+                    data-snippet="s_text_block"
+                    data-name="Logo"
+                    style="background-image: none;"
+                >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2 offset-lg-5 o_colored_level">
+                                <a
+                                    href="/"
+                                    class="o_footer_logo logo"
+                                    data-bs-original-title=""
+                                    title=""
+                                >
+                                    <img
+                                        src="/homepage_nw/static/src/img/website/schwarzes-brett_inverted.png"
+                                        alt=""
+                                        class="img-fluid mx-auto img o_we_custom_image"
+                                        data-mimetype="image/webp"
+                                        data-original-id="463"
+                                        data-original-src="/homepage_nw/static/src/img/website/schwarzes-brett_inverted.png"
+                                        data-mimetype-before-conversion="image/png"
+                                        data-resize-width="500"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Theme Footer - Layout -->
+    <template
+        id="footer_custom"
+        inherit_id="website.footer_custom"
+        name="NW Theme Custom Footer Template"
+        priority="100"
+    >
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div
+                id="oe_structure_footer"
+                class="oe_structure oe_structure_solo"
+                t-ignore="true"
+                t-if="not no_footer"
+            >
+                <section
+                    class="s_text_block pt32"
+                    data-snippet="s_text_block"
+                    data-name="Text"
+                    style="background-image: none;"
+                >
+                    <div class="s_allow_columns container">
+                        <p
+                            class="text-center mb-1"
+                        >Sipbachzeller Str. 3, 4642 Sattledt Austria</p>
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item mx-3">
+                                <i class="fa fa-1x fa-fw fa-phone me-2" />
+                                <span class="o_force_ltr">
+                                    <a
+                                        href="tel://+436502728225"
+                                        data-bs-original-title=""
+                                        title=""
+                                    >
+                                        +436502728225</a>
+                                </span>
+                            </li>
+                            <li class="list-inline-item mx-3">
+                                <i class="fa fa-1x fa-fw fa-envelope me-2" />
+                                <a
+                                    href="http://hello@mytime.click"
+                                    data-bs-original-title=""
+                                    title=""
+                                >hello@mytime.click</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section
+                    class="s_text_block pt16 pb16"
+                    data-snippet="s_text_block"
+                    data-name="Logo"
+                    style="background-image: none;"
+                >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2 offset-lg-5 o_colored_level">
+                                <a
+                                    href="/"
+                                    class="o_footer_logo logo"
+                                    data-bs-original-title=""
+                                    title=""
+                                >
+                                    <img
+                                        src="/homepage_nw/static/src/img/website/schwarzes-brett_inverted.png"
+                                        alt=""
+                                        class="img-fluid mx-auto img o_we_custom_image"
+                                        data-mimetype="image/webp"
+                                        data-original-id="463"
+                                        data-original-src="/homepage_nw/static/src/img/website/schwarzes-brett_inverted.png"
+                                        data-mimetype-before-conversion="image/png"
+                                        data-resize-width="500"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>

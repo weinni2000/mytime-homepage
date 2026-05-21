@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="orbital_timeline.PortfolioBlock">
+        <section class="nw-portfolio">
+            <div class="container">
+                <div class="nw-portfolio-glass">
+                    <div class="row g-5">
+
+                        <!-- Left column -->
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-column gap-4">
+                                <span class="nw-badge">Portfolio Insight</span>
+
+                                <div>
+                                    <h2 class="nw-heading">
+                                        Nikolaus Weingartmair, IT Professional &amp; Odoo Developer
+                                    </h2>
+                                    <p class="nw-subtext">
+                                        Passionate open-source contributor and Odoo specialist based in Austria.
+                                        Building functional websites and ERP solutions that help businesses run better.
+                                    </p>
+                                </div>
+
+                                <div class="d-flex flex-column gap-3">
+                                    <t t-foreach="highlights" t-as="item" t-key="item.title">
+                                        <div class="nw-highlight-card">
+                                            <p class="nw-highlight-title">
+                                                <t t-esc="item.title"/>
+                                            </p>
+                                            <p class="nw-highlight-desc">
+                                                <t t-esc="item.description"/>
+                                            </p>
+                                        </div>
+                                    </t>
+                                </div>
+
+                                <div>
+                                    <a href="https://apps.odoo.com/apps/modules/browse?author=mytime.click"
+                                       target="_blank" class="nw-cta-btn">
+                                        View Odoo Modules
+                                        <i class="fa fa-arrow-right ms-1"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right column: profile card -->
+                        <div class="col-lg-6">
+                            <div class="nw-profile-card">
+                                <div class="text-center">
+                                    <div class="nw-avatar-wrap mx-auto">
+                                        <div class="nw-avatar-glow"/>
+                                        <img src="/homepage_nw/static/src/img/nw_portrait.jpeg"
+                                             alt="Nikolaus Weingartmair"/>
+                                    </div>
+                                    <h3 class="nw-profile-name">Nikolaus Weingartmair</h3>
+                                    <p class="nw-profile-role">IT Professional · Odoo Developer</p>
+                                    <p class="nw-profile-bio">
+                                        Pairing open-source Odoo expertise with a passion for
+                                        building communities and sustainable agriculture.
+                                    </p>
+                                </div>
+
+                                <div class="mt-4">
+                                    <t t-foreach="socialLinks" t-as="social" t-key="social.label">
+                                        <a t-att-href="social.href"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           class="nw-social-link">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <span class="nw-social-icon">
+                                                    <i t-att-class="'fa ' + social.icon"/>
+                                                </span>
+                                                <div>
+                                                    <p class="nw-social-label mb-0">
+                                                        <t t-esc="social.label"/>
+                                                    </p>
+                                                    <p class="nw-social-handle mb-0">
+                                                        <t t-esc="social.handle"/>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <i class="fa fa-arrow-right nw-social-arrow"/>
+                                        </a>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+
+</templates>

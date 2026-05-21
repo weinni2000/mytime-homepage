@@ -1,0 +1,12 @@
+<odoo>
+    <record id="website.default_website" model="website">
+        <field name="name">weingartmair.eu</field>
+        <field name="company_id" ref="base.main_company" />
+        <field name="user_id" ref="base.public_user" />
+        <field
+            name="logo"
+            type="base64"
+            file="homepage_nw/static/src/img/website/schwarzes-brett_inverted.png"
+        />
+    </record>
+</odoo>
