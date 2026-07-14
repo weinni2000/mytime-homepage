@@ -1,6 +1,6 @@
 {
     "name": "Orbital Timeline",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "summary": "Interactive radial orbital timeline on the website",
     "author": "mytime.click",
     "category": "Website",
