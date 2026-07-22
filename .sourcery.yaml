@@ -1,0 +1,8 @@
+version: "1"
+
+rule_settings:
+  enable:
+    - default
+  disable:
+    - for-append-to-extend
+    - raise-from-previous-error

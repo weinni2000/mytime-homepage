@@ -7,8 +7,9 @@ import re
 import requests
 from lxml import etree, html
 
-from odoo import api, models, registry
+from odoo import api, models
 from odoo.exceptions import AccessError
+from odoo.orm.registry import Registry
 from odoo.tools import pycompat
 from odoo.tools.translate import xml_translate
 
@@ -30,7 +31,7 @@ class Website(models.Model):
         # </PATCH>
 
         # Force to refresh env after install of module
-        assert self.env.registry is registry()
+        assert self.env.registry is Registry(self.env.cr.dbname)
 
         website.configurator_done = True
 
@@ -176,7 +177,7 @@ class Website(models.Model):
 
         if modules:
             modules.button_immediate_install()
-            assert self.env.registry is registry()
+            assert self.env.registry is Registry(self.env.cr.dbname)
 
         self.env["website"].browse(website.id).configurator_set_menu_links(
             menu_company, module_data
