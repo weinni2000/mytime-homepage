@@ -9,7 +9,6 @@ from lxml import etree, html
 
 from odoo import api, models
 from odoo.exceptions import AccessError
-from odoo.tools import pycompat
 from odoo.tools.translate import xml_translate
 
 _logger = logging.getLogger(__name__)
@@ -389,7 +388,7 @@ class Website(models.Model):
                             shape_el[0].attrib["class"] += (
                                 " o_footer_extra_shape_mapping"
                             )
-                    rendered_snippet = pycompat.to_text(etree.tostring(el))
+                    rendered_snippet = etree.tostring(el, encoding="unicode")
                     rendered_snippets.append(rendered_snippet)
                 except ValueError as e:
                     _logger.warning(e)
