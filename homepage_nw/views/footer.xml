@@ -9,7 +9,7 @@
     >
         <xpath expr="//div[@id='footer']" position="replace">
             <div
-                id="oe_structure_footer"
+                id="footer"
                 class="oe_structure oe_structure_solo"
                 t-ignore="true"
                 t-if="not no_footer"
@@ -90,7 +90,7 @@
     >
         <xpath expr="//div[@id='footer']" position="replace">
             <div
-                id="oe_structure_footer"
+                id="footer"
                 class="oe_structure oe_structure_solo"
                 t-ignore="true"
                 t-if="not no_footer"
