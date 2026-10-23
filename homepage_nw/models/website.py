@@ -6,9 +6,9 @@ import re
 
 import requests
 from lxml import etree, html
+from requests import RequestException
 
 from odoo import api, models
-from odoo.exceptions import AccessError
 from odoo.tools import BinaryBytes
 from odoo.tools.translate import StoredTranslations, xml_translate
 
@@ -221,11 +221,15 @@ class Website(models.Model):
 
         # Load suggestion from iap for selected pages
         industry_id = kwargs["industry_id"]
-        custom_resources = self._website_api_rpc(
-            "/api/website/2/configurator/custom_resources/%s"
-            % (industry_id if industry_id > 0 else ""),
-            {"theme": theme_name},
-        )
+        try:
+            custom_resources = self._website_api_rpc(
+                "/api/website/2/configurator/custom_resources/%s"
+                % (industry_id if industry_id > 0 else ""),
+                {"theme": theme_name},
+            )
+        except RequestException as e:
+            _logger.warning(e)
+            custom_resources = {}
 
         # Generate text for the pages
         requested_pages = set(pages_views.keys()).union({"homepage"})
@@ -326,7 +330,7 @@ class Website(models.Model):
                         generated_content[key] = name_replace_parser.sub(
                             website.name, response[key], 0
                         )
-            except AccessError as e:
+            except RequestException as e:
                 # If IAP is broken continue normally (without generating text)
                 _logger.warning(e)
         else:
