@@ -5,7 +5,7 @@
         <field name="user_id" ref="base.public_user" />
         <field
             name="logo"
-            type="base64"
+            type="bytes"
             file="homepage_nw/static/src/img/website/schwarzes-brett_inverted.png"
         />
     </record>
