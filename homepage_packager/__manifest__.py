@@ -6,7 +6,7 @@
     "author": "mytime.click",
     "website": "https://github.com/OCA/partner-contact",
     "category": "Uncategorized",
-    "version": "19.0.1.0",
+    "version": "20.0.1.0.0",
     "license": "AGPL-3",
     "depends": ["base", "website"],
     "data": [
