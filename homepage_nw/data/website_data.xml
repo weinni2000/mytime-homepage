@@ -1,5 +1,5 @@
 <odoo>
-    <record id="website.default_website" model="website">
+    <record id="base.default_website" model="website">
         <field name="name">weingartmair.eu</field>
         <field name="company_id" ref="base.main_company" />
         <field name="user_id" ref="base.public_user" />
