@@ -9,7 +9,7 @@ from lxml import etree, html
 
 from odoo import api, models
 from odoo.exceptions import AccessError
-from odoo.tools.translate import xml_translate
+from odoo.tools.translate import StoredTranslations, xml_translate
 
 _logger = logging.getLogger(__name__)
 
@@ -250,13 +250,10 @@ class Website(models.Model):
 
             if text_must_be_translated_for_openai:
                 # Check if terms are translated.
-                translation_dictionary = (
-                    self.env["website.page"]
-                    ._fields["arch_db"]
-                    .get_translation_dictionary(
-                        str(IrQweb._render(key, cta_data, lang="en_US")),
-                        {text_generation_target_lang: str(render)},
-                    )
+                translation_dictionary = StoredTranslations._get_translation_dictionary(
+                    self.env["website.page"]._fields["arch_db"],
+                    str(IrQweb._render(key, cta_data, lang="en_US")),
+                    {text_generation_target_lang: str(render)},
                 )
                 # Remove all numeric keys.
                 translation_dictionary = {
