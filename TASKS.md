@@ -1,4 +1,4 @@
 # Upgrade 19.0 -> 20.0
 
-- [ ] homepage_nw
+- [x] homepage_nw
 - [ ] homepage_packager
