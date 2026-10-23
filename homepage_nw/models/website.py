@@ -9,6 +9,7 @@ from lxml import etree, html
 
 from odoo import api, models
 from odoo.exceptions import AccessError
+from odoo.tools import BinaryBytes
 from odoo.tools.translate import StoredTranslations, xml_translate
 
 _logger = logging.getLogger(__name__)
@@ -43,17 +44,16 @@ class Website(models.Model):
         # Set logo from generated attachment or from company's logo
         logo_attachment_id = kwargs.get("logo_attachment_id")
         company = website.company_id
-        if logo_attachment_id:
-            attachment = self.env["ir.attachment"].browse(logo_attachment_id)
-            attachment.write(
-                {
-                    "res_model": "website",
-                    "res_field": "logo",
-                    "res_id": website.id,
-                }
-            )
-        elif not logo_attachment_id and not company.uses_default_logo:
-            website.logo = company.logo.decode("utf-8")
+        attachment = (
+            self.env["ir.attachment"].browse(logo_attachment_id).exists()
+            if logo_attachment_id
+            else False
+        )
+        if attachment:
+            website.logo = BinaryBytes(attachment.raw)
+            attachment.unlink()
+        elif not company.uses_default_logo:
+            website.logo = BinaryBytes(company.logo.content)
 
         # Configure the color palette
         selected_palette = kwargs.get("selected_palette")
