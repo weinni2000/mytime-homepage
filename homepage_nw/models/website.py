@@ -20,7 +20,12 @@ class Website(models.Model):
 
     @api.model
     def configurator_apply_simple(self, **kwargs):  # noqa: C901
-        website = self.get_current_website()
+        website = (
+            self.env.website
+            or self.env.website.browse(self.env.context.get("host_id"))
+            or self.env.ref("base.default_website")
+        )
+        self = self.with_context(website_id=website.id)  # noqa: PLW0642
         theme_name = kwargs["theme_name"]
         theme = self.env["ir.module.module"].search([("name", "=", theme_name)])
         theme._generate_primary_snippet_templates()
@@ -270,7 +275,7 @@ class Website(models.Model):
             snippets_cache[key] = data
             return data
 
-        text_generation_target_lang = self.get_current_website().default_lang_id.code
+        text_generation_target_lang = website.default_lang_id.code
         # If the target language is not English, we need a good translation
         # coverage. But if the target lang is en_XX it's ok to have en_US text.
         text_must_be_translated_for_openai = not text_generation_target_lang.startswith(
