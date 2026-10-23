@@ -7,7 +7,7 @@ import re
 import requests
 from lxml import etree, html
 
-from odoo import api, models, registry
+from odoo import api, models
 from odoo.exceptions import AccessError
 from odoo.tools import pycompat
 from odoo.tools.translate import xml_translate
@@ -29,8 +29,9 @@ class Website(models.Model):
         redirect_url = "/"
         # </PATCH>
 
-        # Force to refresh env after install of module
-        assert self.env.registry is registry()
+        # Refresh the environment of the website after module installs to use
+        # addon overrides for the rest of the configurator.
+        website = self.env["website"].browse(website.id)
 
         website.configurator_done = True
 
@@ -176,7 +177,6 @@ class Website(models.Model):
 
         if modules:
             modules.button_immediate_install()
-            assert self.env.registry is registry()
 
         self.env["website"].browse(website.id).configurator_set_menu_links(
             menu_company, module_data
